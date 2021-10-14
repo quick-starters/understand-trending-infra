@@ -11,7 +11,7 @@
 
 
 
-**docker-compose-single-broker.yml**
+**kafka-docker/docker-compose-single-broker.yml**
 
 ```yml
 version: '2'
