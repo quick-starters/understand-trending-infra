@@ -1,0 +1,41 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.5'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+allprojects {
+    group = 'com.quick-starters'
+    version = '0.0.1-SNAPSHOT'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    sourceCompatibility = '11'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter'
+        implementation 'org.springframework.kafka:spring-kafka:2.7.1'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testImplementation 'org.springframework.kafka:spring-kafka-test'
+    }
+
+    task wrapper(type: Wrapper) {
+        gradleVersion = '7.0'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
